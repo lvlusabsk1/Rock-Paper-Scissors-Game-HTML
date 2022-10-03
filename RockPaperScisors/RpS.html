@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>RPS Game</title>
+        
+</head>
+<body>
+        
+    <h3>Rock Paper Scissors Game</h3>
+    <p id="usr">...</p>
+    <p id="com">...</p>
+    <p id="res">...</p>
+
+<script type="text/javascript">
+
+var userSelection = prompt("Type your move: rock, paper or scissors? (all lowercase)", "scissors");
+var computerSelection = Math.random();
+
+if (userSelection != "rock" && userSelection != "paper" && userSelection != "scissors"){
+    userSelection = prompt("You have entered an invalid format. Try again all lower case no spaces", "rock")
+}
+
+if (computerSelection <= 0.34) {
+    computerSelection = "paper";
+} else if(computerSelection <= 0.67) {
+    computerSelection = "scissors";
+} else {
+    computerSelection = "rock";
+}
+console.log("Player's Choice: " + userSelection);
+console.log("Computer's Choice: " + computerSelection);
+
+function result(playerMove, compMove) {
+    if (playerMove == compMove) {
+    return "It's a tie!  \n Reload page to play again";
+    }
+
+    if (playerMove == "rock") {
+        if(compMove == "scissors") {
+            return "Congragulations! You win with rock :)  \n Reload page to play again";
+        } 
+        else {
+            return "Computer wins with paper :(  \n Reload page to play again";
+        }
+    }
+
+    if (playerMove == "paper") {
+        if(compMove == "rock") {
+            return "Congragulations! You win with paper :)  \n Reload page to play again";
+        } 
+        else {
+            return "Computer wins with scissors :(  \n Reload page to play again";
+        }
+    }
+
+    if (playerMove == "scissors") {
+        if(compMove == "paper") {
+            return "Congragulations! You win with scissors :)  \n Reload page to play again";
+        } 
+        else {
+            return "Computer wins with rock :(  \n Reload page to play again";
+        }
+    }
+};
+
+console.log("result: " + result(userSelection, computerSelection));
+
+document.getElementById("res").innerHTML = result(userSelection, computerSelection);
+document.getElementById("usr").innerHTML = "Player's Move: " + userSelection;
+document.getElementById("com").innerHTML = "Computer's Move: " + computerSelection;
+
+</script>
+
+
+    <div id="footer">
+        <h5> By Musab<br>
+            Github lvlusab1
+        </h5>
+
+</body>
+</html>
